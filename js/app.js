@@ -106,18 +106,24 @@ cards.forEach((card) => {
       const res = await fetch(
         `${API_BASE}/api/review?url=${encodeURIComponent(url)}`
       );
-      const data = await res.json();
+      const text = await res.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        throw new Error(
+          "API tidak mengembalikan JSON (HTTP " +
+            res.status +
+            "). Redeploy project di Vercel setelah update api/review.js"
+        );
+      }
       if (!data.success) {
         throw new Error(data.error || "Gagal review");
       }
       showPreview(data);
     } catch (err) {
       console.error(err);
-      alert(
-        "Gagal review: " +
-          (err.message || "unknown") +
-          "\n\nPastikan scraper API berjalan:\ncd scraper && npm install && npm start"
-      );
+      alert("Gagal review: " + (err.message || "unknown"));
       previewArea.classList.add("hidden");
       lastResult = null;
     } finally {
@@ -194,7 +200,13 @@ btnDownload.addEventListener("click", async () => {
     const res = await fetch(
       `${API_BASE}/api/download?url=${encodeURIComponent(lastUrl)}&quality=${encodeURIComponent(quality)}`
     );
-    const data = await res.json();
+    const text = await res.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      throw new Error("API download error (HTTP " + res.status + ")");
+    }
     if (!data.success || !data.downloadUrl) {
       throw new Error(data.error || "Tidak ada URL download");
     }
