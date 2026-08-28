@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Omstiff404 — Official Profile. Creator, content, & social tools. Neo-brutalism style.">
+  <meta name="keywords" content="omstiff404, profile, creator, tiktok, instagram, facebook, download, neo-brutalism">
+  <meta name="author" content="Omstiff404">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://omstiff404.example.com/">
+  <meta property="og:title" content="Omstiff404 | Official Profile">
+  <meta property="og:description" content="Profile resmi Omstiff404. Avatar, cover video, social download tools & more.">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <meta property="og:locale" content="id_ID">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Omstiff404 | Official Profile">
+  <meta name="twitter:description" content="Profile resmi Omstiff404. Avatar, cover video, social download tools & more.">
+  <meta name="twitter:image" content="assets/og-image.jpg">
+
+  <title>Omstiff404 | Official Profile</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Intro loading 5 detik -->
+  <div id="intro-loader" class="intro-loader" aria-live="polite">
+    <div class="intro-box">
+      <div class="intro-logo">OMSTIFF404</div>
+      <div class="intro-bar"><span class="intro-bar-fill"></span></div>
+      <p class="intro-text">Loading…</p>
+    </div>
+  </div>
+
+  <!-- Noise overlay for neo-brutal texture -->
+  <div class="noise" aria-hidden="true"></div>
+
+  <main>
+    <!-- PROFILE HERO -->
+    <section id="profile" class="hero">
+      <div class="cover-wrap">
+        <!-- COVER VIDEO (persegi panjang) — ganti file di assets/cover.mp4 -->
+        <video class="cover-video" autoplay muted loop playsinline poster="assets/cover-poster.jpg">
+          <source src="assets/cover.mp4" type="video/mp4">
+          <!-- fallback jika video tidak ada -->
+        </video>
+        <div class="cover-overlay"></div>
+      </div>
+
+      <div class="avatar-block">
+        <!-- AVATAR — ganti file di assets/avatar.jpg atau .png -->
+        <div class="avatar-frame">
+          <img src="https://unavatar.io/tiktok/omstiff404" alt="Avatar Omstiff404" class="avatar-img" onerror="this.onerror=null;this.src='assets/avatar-placeholder.svg'">
+        </div>
+        <div class="status-dot" title="Online"></div>
+      </div>
+
+      <div class="profile-info">
+        <h1 class="name">Omstiff404</h1>
+        <p class="handle"><a href="https://www.tiktok.com/@omstiff404" target="_blank" rel="noopener" id="tt-handle">@omstiff404</a></p>
+        <p class="bio" id="tt-bio">Aku suka ngedit &amp; game</p>
+        <div class="stats" id="tt-stats">
+          <div class="stat">
+            <span class="stat-num" id="stat-followers" data-value="0">—</span>
+            <span class="stat-label">Followers</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" id="stat-following" data-value="0">—</span>
+            <span class="stat-label">Following</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" id="stat-likes" data-value="0">—</span>
+            <span class="stat-label">Likes</span>
+          </div>
+        </div>
+        <p class="live-badge" id="live-badge">Live · 1s</p>
+      </div>
+    </section>
+
+    <!-- SOCIAL DOWNLOAD TOOLS -->
+    <section id="tools" class="section tools-section">
+      <div class="section-header">
+        <h2 class="section-title">Social Download</h2>
+        <p class="section-desc">Paste link → Review → Download. Support TikTok, IG, FB, YouTube, X, Pinterest, CapCut, Spotify & lebih.</p>
+      </div>
+
+      <div class="platform-grid" id="platform-grid">
+
+        <div class="platform-card" data-platform="tiktok">
+          <button type="button" class="platform-btn" aria-label="TikTok">
+            <span class="platform-logo logo-tiktok" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .56.04.82.12V9.01a6.27 6.27 0 0 0-.82-.05A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.69a8.19 8.19 0 0 0 4.76 1.52V6.75a4.85 4.85 0 0 1-1-.06z"/></svg>
+            </span>
+            <span class="platform-name">TikTok</span>
+            <span class="platform-desc">Tanpa watermark, HD quality</span>
+          </button>
+          <div class="platform-panel">
+            <div class="input-row">
+              <input type="url" class="url-input platform-input" placeholder="Paste link TikTok..." autocomplete="off">
+              <button type="button" class="btn btn-primary btn-review">Review</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="platform-card" data-platform="instagram">
+          <button type="button" class="platform-btn" aria-label="Instagram">
+            <span class="platform-logo logo-instagram" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>
+            </span>
+            <span class="platform-name">Instagram</span>
+            <span class="platform-desc">Reels, Posts, Stories</span>
+          </button>
+          <div class="platform-panel">
+            <div class="input-row">
+              <input type="url" class="url-input platform-input" placeholder="Paste link Instagram..." autocomplete="off">
+              <button type="button" class="btn btn-primary btn-review">Review</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="platform-card" data-platform="youtube">
+          <button type="button" class="platform-btn" aria-label="YouTube">
+            <span class="platform-logo logo-youtube" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.8 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>
+            </span>
+            <span class="platform-name">YouTube</span>
+            <span class="platform-desc">Video &amp; Audio MP3</span>
+          </button>
+          <div class="platform-panel">
+            <div class="input-row">
+              <input type="url" class="url-input platform-input" placeholder="Paste link YouTube..." autocomplete="off">
+              <button type="button" class="btn btn-primary btn-review">Review</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="platform-card" data-platform="facebook">
+          <button type="button" class="platform-btn" aria-label="Facebook">
+            <span class="platform-logo logo-facebook" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H6v4h3v8h4v-8h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg>
+            </span>
+            <span class="platform-name">Facebook</span>
+            <span class="platform-desc">Videos &amp; Reels</span>
+          </button>
+          <div class="platform-panel">
+            <div class="input-row">
+              <input type="url" class="url-input platform-input" placeholder="Paste link Facebook..." autocomplete="off">
+              <button type="button" class="btn btn-primary btn-review">Review</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="platform-card" data-platform="pinterest">
+          <button type="button" class="platform-btn" aria-label="Pinterest">
+            <span class="platform-logo logo-pinterest" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff"><path d="M12 2C6.5 2 2 6.5 2 12c0 4.2 2.6 7.8 6.3 9.3-.1-.8-.2-2 0-2.9.2-.8 1.3-5.4 1.3-5.4s-.3-.7-.3-1.6c0-1.5.9-2.6 2-2.6.9 0 1.4.7 1.4 1.5 0 .9-.6 2.3-.9 3.5-.3 1.1.5 1.9 1.5 1.9 1.8 0 3.2-1.9 3.2-4.7 0-2.4-1.8-4.2-4.3-4.2-2.9 0-4.6 2.2-4.6 4.4 0 .9.3 1.8.8 2.3.1.1.1.2.1.3l-.3 1.2c0 .2-.1.2-.3.1-1.2-.6-2-2.4-2-3.9 0-3.2 2.3-6.1 6.6-6.1 3.5 0 6.2 2.5 6.2 5.8 0 3.4-2.2 6.2-5.2 6.2-1 0-2-.5-2.3-1.2l-.6 2.4c-.2.9-.8 2-1.2 2.7.9.3 1.9.4 2.9.4 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+            </span>
+            <span class="platform-name">Pinterest</span>
+            <span class="platform-desc">Gambar &amp; Video</span>
+          </button>
+          <div class="platform-panel">
+            <div class="input-row">
+              <input type="url" class="url-input platform-input" placeholder="Paste link Pinterest..." autocomplete="off">
+              <button type="button" class="btn btn-primary btn-review">Review</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="platform-card" data-platform="spotify">
+          <button type="button" class="platform-btn" aria-label="Spotify">
+            <span class="platform-logo logo-spotify" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 14.4a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.56-1.03 8.5-.59 11.66 1.34a.75.75 0 0 1 .25 1.03zm1.23-2.74a.9.9 0 0 1-1.24.3c-3.23-1.98-8.15-2.56-11.97-1.4a.9.9 0 1 1-.52-1.73c4.34-1.3 9.76-.67 13.43 1.58a.9.9 0 0 1 .3 1.25zm.1-2.86c-3.87-2.3-10.26-2.51-13.95-1.39a1.05 1.05 0 1 1-.6-2.02c4.25-1.27 11.3-1.02 15.77 1.63a1.05 1.05 0 0 1-1.22 1.78z"/></svg>
+            </span>
+            <span class="platform-name">Spotify</span>
+            <span class="platform-desc">Track audio MP3</span>
+          </button>
+          <div class="platform-panel">
+            <div class="input-row">
+              <input type="url" class="url-input platform-input" placeholder="Paste link Spotify..." autocomplete="off">
+              <button type="button" class="btn btn-primary btn-review">Review</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="platform-card" data-platform="twitter">
+          <button type="button" class="platform-btn" aria-label="X Twitter">
+            <span class="platform-logo logo-twitter" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="#fff"><path d="M18.2 2H21l-6.5 7.4L22 22h-6.2l-4.9-6.4L5.3 22H2.5l7-8L2 2h6.3l4.4 5.8L18.2 2zm-1.1 18h1.7L7 3.9H5.2L17.1 20z"/></svg>
+            </span>
+            <span class="platform-name">X / Twitter</span>
+            <span class="platform-desc">Video &amp; post media</span>
+          </button>
+          <div class="platform-panel">
+            <div class="input-row">
+              <input type="url" class="url-input platform-input" placeholder="Paste link X / Twitter..." autocomplete="off">
+              <button type="button" class="btn btn-primary btn-review">Review</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="platform-card" data-platform="reddit">
+          <button type="button" class="platform-btn" aria-label="Reddit">
+            <span class="platform-logo logo-reddit" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.5 9.5c0 .4-.1.8-.3 1.1.1.4.2.9.2 1.4 0 2.5-2.9 4.5-6.4 4.5S5.6 16.5 5.6 14c0-.5.1-1 .2-1.4-.2-.3-.3-.7-.3-1.1 0-.9.7-1.6 1.6-1.6.4 0 .8.2 1.1.4 1-.7 2.3-1.1 3.8-1.2l.7-3.2c0-.2.2-.3.4-.3h2.2c.2 0 .4.2.4.4s-.2.4-.4.4h-1.9l-.6 2.8c1.4.1 2.7.5 3.7 1.2.3-.3.7-.4 1.1-.4.9 0 1.6.7 1.6 1.6zM8.8 13.2c0-.6.5-1.1 1.1-1.1s1.1.5 1.1 1.1-.5 1.1-1.1 1.1-1.1-.5-1.1-1.1zm6.5 2.4c-.8.8-2.1 1.1-3.3 1.1s-2.5-.4-3.3-1.1c-.2-.2-.2-.4 0-.5.2-.2.4-.2.5 0 .6.6 1.7.9 2.8.9s2.2-.3 2.8-.9c.2-.2.4-.2.5 0 .2.1.2.4 0 .5zm-.5-1.3c-.6 0-1.1-.5-1.1-1.1s.5-1.1 1.1-1.1 1.1.5 1.1 1.1-.5 1.1-1.1 1.1z"/></svg>
+            </span>
+            <span class="platform-name">Reddit</span>
+            <span class="platform-desc">Video &amp; gambar post</span>
+          </button>
+          <div class="platform-panel">
+            <div class="input-row">
+              <input type="url" class="url-input platform-input" placeholder="Paste link Reddit..." autocomplete="off">
+              <button type="button" class="btn btn-primary btn-review">Review</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Preview global (muncul setelah review) -->
+      <div id="preview-area" class="preview-area hidden">
+        <div class="preview-card">
+          <div class="preview-thumb" id="preview-thumb">
+            <span class="preview-placeholder">Preview akan muncul di sini</span>
+          </div>
+          <div class="preview-meta">
+            <p id="preview-title" class="preview-title">—</p>
+            <p id="preview-author" class="preview-author">—</p>
+            <div class="preview-actions">
+              <button id="btn-download" class="btn btn-accent">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </button>
+              <select id="quality-select" class="quality-select">
+                <option value="best">Best Quality</option>
+                <option value="720">720p</option>
+                <option value="480">480p</option>
+                <option value="audio">Audio Only</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT -->
+    <section id="support" class="section support-section">
+      <div class="section-header">
+        <h2 class="section-title">Support Saya</h2>
+        <p class="section-desc">Kalau suka tools-nya, support biar terus dikembangkan.</p>
+      </div>
+      <div class="support-grid">
+        <a href="https://saweria.co/omstiff" class="support-card" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span>Saweria / Donation</span>
+        </a>
+        <a href="https://wa.me/6281234567890" class="support-card" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2.1-5.4A8.5 8.5 0 1 1 21 11.5z"/><path d="M8.5 9.5c.5 1.5 2 3.5 4 4.5"/><path d="M14.5 14.5c.3-.2.6-.4.8-.6"/><path d="M9.5 9c.2-.3.4-.6.5-.9"/></svg>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Omstiff404. Built with neo-brutalism slim.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

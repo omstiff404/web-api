@@ -1,0 +1,20 @@
+{
+  "name": "omstiff404",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Omstiff404 profile + social tools \u2014 Vercel",
+  "scripts": {
+    "dev": "vercel dev",
+    "start:local": "node scraper/server.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "btch-downloader": "^2.8.4",
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "form-data": "^4.0.1",
+    "qs": "^6.13.1"
+  }
+}

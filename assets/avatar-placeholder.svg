@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140" fill="none">
+  <rect width="140" height="140" fill="#f0f0f0"/>
+  <circle cx="70" cy="52" r="28" fill="#ddd" stroke="#000" stroke-width="3"/>
+  <path d="M30 120c0-22 18-40 40-40s40 18 40 40" fill="#ddd" stroke="#000" stroke-width="3"/>
+  <text x="70" y="132" text-anchor="middle" font-family="monospace" font-size="10" fill="#666">AVATAR</text>
+</svg>
