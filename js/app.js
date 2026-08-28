@@ -139,11 +139,46 @@ cards.forEach((card) => {
   });
 });
 
+function forceOpen(url) {
+  if (!url) return false;
+  // 1) <a> click — lebih reliable di mobile daripada window.open
+  try {
+    const a = document.createElement("a");
+    a.href = url;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.style.display = "none";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    return true;
+  } catch (_) {}
+  // 2) fallback
+  try {
+    window.open(url, "_blank", "noopener,noreferrer");
+    return true;
+  } catch (_) {}
+  // 3) last resort
+  try {
+    location.href = url;
+    return true;
+  } catch (_) {}
+  return false;
+}
+
 function showPreview(data) {
   lastResult = data;
   previewArea.classList.remove("hidden");
 
-  if (data.thumbnail) {
+  const media = Array.isArray(data.media) ? data.media.filter((m) => m && m.url) : [];
+
+  // Thumbnail / player
+  const first = media[0];
+  if (first && (first.type === "video" || /\.(mp4|webm|mov)(\?|$)/i.test(first.url))) {
+    previewThumb.innerHTML = `<video class="preview-player" src="${first.url}" controls playsinline poster="${data.thumbnail || ""}"></video>`;
+  } else if (first && (first.type === "image" || /\.(jpg|jpeg|png|webp|gif)(\?|$)/i.test(first.url))) {
+    previewThumb.innerHTML = `<img src="${first.url}" alt="preview" referrerpolicy="no-referrer">`;
+  } else if (data.thumbnail) {
     previewThumb.innerHTML = `<img src="${data.thumbnail}" alt="thumb" referrerpolicy="no-referrer">`;
   } else {
     previewThumb.innerHTML = `<span class="preview-placeholder">${data.platform || "media"}</span>`;
@@ -154,29 +189,40 @@ function showPreview(data) {
     ? `@${data.author}`
     : data.platform || "—";
 
+  // Quality select + list link unduhan
   qualitySelect.innerHTML = "";
-  const media = data.media || [];
+  const linkBox = document.getElementById("media-links");
+  if (linkBox) linkBox.innerHTML = "";
+
   if (media.length === 0) {
     qualitySelect.innerHTML = `<option value="best">Best</option>`;
   } else {
     const seen = new Set();
     media.forEach((m, i) => {
       const label = `${m.type || "media"}${m.quality ? " · " + m.quality : ""}`;
-      const val = m.quality || m.type || String(i);
-      if (seen.has(val)) return;
-      seen.add(val);
-      const opt = document.createElement("option");
-      opt.value = val;
-      opt.textContent = label;
-      opt.dataset.url = m.url;
-      qualitySelect.appendChild(opt);
+      const val = String(m.quality || m.type || i);
+      if (!seen.has(val + m.url)) {
+        seen.add(val + m.url);
+        const opt = document.createElement("option");
+        opt.value = val;
+        opt.textContent = label;
+        opt.dataset.url = m.url;
+        qualitySelect.appendChild(opt);
+      }
+
+      if (linkBox) {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "btn btn-accent media-dl-btn";
+        btn.textContent = "⬇ " + label;
+        btn.addEventListener("click", () => {
+          if (!forceOpen(m.url)) {
+            alert("Gagal membuka link. Copy manual:\n" + m.url);
+          }
+        });
+        linkBox.appendChild(btn);
+      }
     });
-    if (media.some((m) => m.type === "audio") && !seen.has("audio")) {
-      const opt = document.createElement("option");
-      opt.value = "audio";
-      opt.textContent = "audio only";
-      qualitySelect.appendChild(opt);
-    }
   }
 
   previewArea.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -188,10 +234,31 @@ btnDownload.addEventListener("click", async () => {
     return;
   }
 
+  // Ambil URL dari quality select dulu
   const selectedOpt = qualitySelect.selectedOptions[0];
   if (selectedOpt?.dataset?.url) {
-    window.open(selectedOpt.dataset.url, "_blank");
+    if (!forceOpen(selectedOpt.dataset.url)) {
+      alert("Browser memblokir popup. Coba tombol unduhan di bawah preview.");
+    }
     return;
+  }
+
+  // Dari lastResult media
+  if (lastResult?.media?.length) {
+    const q = qualitySelect.value || "best";
+    let m = lastResult.media[0];
+    if (q === "audio") {
+      m = lastResult.media.find((x) => x.type === "audio") || m;
+    } else {
+      m =
+        lastResult.media.find((x) => String(x.quality || "").includes(q)) ||
+        lastResult.media.find((x) => x.type === "video") ||
+        m;
+    }
+    if (m?.url) {
+      forceOpen(m.url);
+      return;
+    }
   }
 
   setLoading(btnDownload, true);
@@ -210,22 +277,15 @@ btnDownload.addEventListener("click", async () => {
     if (!data.success || !data.downloadUrl) {
       throw new Error(data.error || "Tidak ada URL download");
     }
-    window.open(data.downloadUrl, "_blank");
+    if (!forceOpen(data.downloadUrl)) {
+      alert("Link unduhan:\n" + data.downloadUrl);
+    }
   } catch (err) {
     console.error(err);
     alert("Gagal download: " + (err.message || "unknown"));
   } finally {
     setLoading(btnDownload, false);
   }
-});
-
-document.querySelectorAll('.nav-link[href^="#"]').forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-    const id = link.getAttribute("href").slice(1);
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
 });
 
 /* ========== Live TikTok profile sync ========== */
